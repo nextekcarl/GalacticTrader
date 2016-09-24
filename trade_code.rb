@@ -119,4 +119,21 @@ class TradeCode
     end
     return goods.flatten
   end
+
+  def self.all_trade_relavent_codes
+    return {
+      in: 'Industrial',
+      ht: 'High Tech',
+      hi: 'High Population',
+      ag: 'Agricultural',
+      wa: 'Water World',
+      a:  'Asteroid',
+      de: 'Desert',
+      ic: 'Ice Capped',
+      ga: 'Garden',
+      fl: 'Fluid Oceans',
+      lo: 'Low Population',
+      ni: 'Non-industrial'
+    }
+  end
 end
