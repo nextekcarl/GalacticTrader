@@ -11,13 +11,17 @@ to get a nice output of what he can sell today. He will return the same
 goods every time, until you specifically call bob.to_s(true)
 to force a recalculation of his available trade lots.
 You can also call bob.to_html_table to get a nicely formatted html table, passing
-true if you want to force a recalculation."
+true if you want to force a recalculation.
+You can also use the full text names rather than the trade codes, just replace
+any spaces with underscores (High_tech rather than High tech).
+I've created @mike as a Supplier.new(false, 'Industrial') for you already."
+
+@mike = Supplier.new(false, 'Industrial')
 
 #TODO: When getting a supplier's basic trade goods, I need to remove duplicates,
 #but ONLY for the automatic basic goods. If duplicates come up in the random roll
 #then they increase the max tonnage rather than get tossed away. So duplicates
 #can probably be left in place after that.
 
-#TODO: Add HTML option to output a nice table.
 #TODO: Implement data structure to contain the trade goods generated to
 #make outputting various formats easier.

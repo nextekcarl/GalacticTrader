@@ -2,86 +2,87 @@ class BasicTradeGood
   #Define the basic goods, link to table with defined goods on it.
   #Has a max tonnage, and then a table of DefinedTradeGoods that can make it up.
   #case statement to determine what DefinedTradeGoods to roll up???
-  attr_accessor :basic_trade_good, :max_tonnage, :total_tonnage, :specifics
-  def initialize(basic_trade_good)
+  attr_accessor :basic_trade_good, :morally_ambiguous, :max_tonnage, :total_tonnage, :specifics
+  def initialize(basic_trade_good, morally_ambiguous)
     @basic_trade_good = basic_trade_good
-    case @basic_trade_good
-      when "Basic Electronics"
+    @morally_ambiguous = morally_ambiguous
+    case
+      when @basic_trade_good == "Basic Electronics"
         @max_tonnage = roll('1d6') * 10
-      when "Basic Machine Parts"
+      when @basic_trade_good == "Basic Machine Parts"
         @max_tonnage = roll('1d6') * 10
-      when "Basic Manufactured Goods"
+      when @basic_trade_good == "Basic Manufactured Goods"
         @max_tonnage = roll('1d6') * 10
-      when "Basic Raw Materials"
+      when @basic_trade_good == "Basic Raw Materials"
         @max_tonnage = roll('1d6') * 10
-      when "Basic Consumables"
+      when @basic_trade_good == "Basic Consumables"
         @max_tonnage = roll('1d6') * 10
-      when "Basic Ore"
+      when @basic_trade_good == "Basic Ore"
         @max_tonnage = roll('1d6') * 10
-      when "Advanced Electronics"
+      when @basic_trade_good == "Advanced Electronics"
         @max_tonnage = roll('1d6') * 5
-      when "Advanced Machine Parts"
+      when @basic_trade_good == "Advanced Machine Parts"
         @max_tonnage = roll('1d6') * 5
-      when "Advanced Manufactured Goods"
+      when @basic_trade_good == "Advanced Manufactured Goods"
         @max_tonnage = roll('1d6') * 5
-      when "Advanced Weapons"
+      when @basic_trade_good == "Advanced Weapons"
         @max_tonnage = roll('1d6') * 5
-      when "Advanced Vehicles"
+      when @basic_trade_good == "Advanced Vehicles"
         @max_tonnage = roll('1d6') * 5
-      when "Biochemicals"
+      when @basic_trade_good == "Biochemicals"
         @max_tonnage = roll('1d6') * 5
-      when "Crystals & Gems"
+      when @basic_trade_good == "Crystals & Gems"
         @max_tonnage = roll('1d6') * 5
-      when "Cybernetics"
+      when @basic_trade_good == "Cybernetics"
         @max_tonnage = roll('1d6')
-      when "Live Animals"
+      when @basic_trade_good == "Live Animals"
         @max_tonnage = roll('1d6') * 10
-      when "Luxury Consumables"
+      when @basic_trade_good == "Luxury Consumables"
         @max_tonnage = roll('1d6') * 10
-      when "Luxury Goods"
+      when @basic_trade_good == "Luxury Goods"
         @max_tonnage = roll('1d6')
-      when "Medical Supplies"
+      when @basic_trade_good == "Medical Supplies"
         @max_tonnage = roll('1d6') * 5
-      when "Petrochemicals"
+      when @basic_trade_good == "Petrochemicals"
         @max_tonnage = roll('1d6') * 10
-      when "Pharmaceuticals"
+      when @basic_trade_good == "Pharmaceuticals"
         @max_tonnage = roll('1d6')
-      when "Polymers"
+      when @basic_trade_good == "Polymers"
         @max_tonnage = roll('1d6') * 10
-      when "Precious Metals"
+      when @basic_trade_good == "Precious Metals"
         @max_tonnage = roll('1d6')
-      when "Radioactives"
+      when @basic_trade_good == "Radioactives"
         @max_tonnage = roll('1d6')
-      when "Robots"
+      when @basic_trade_good == "Robots"
         @max_tonnage = roll('1d6') * 5
-      when "Spices"
+      when @basic_trade_good == "Spices"
         @max_tonnage = roll('1d6') * 5
-      when "Textiles"
+      when @basic_trade_good == "Textiles"
         @max_tonnage = roll('1d6') * 10
-      when "Uncommon Ore"
+      when @basic_trade_good == "Uncommon Ore"
         @max_tonnage = roll('1d6') * 10
-      when "Uncommon Raw Materials"
+      when @basic_trade_good == "Uncommon Raw Materials"
         @max_tonnage = roll('1d6') * 10
-      when "Wood"
+      when @basic_trade_good == "Wood"
         @max_tonnage = roll('1d6') * 10
-      when "Vehicles"
+      when @basic_trade_good == "Vehicles"
         @max_tonnage = roll('1d6') * 10
-      when "Biochemicals, Illegal"
+      when @basic_trade_good == "Biochemicals, Illegal" && @morally_ambiguous
         @max_tonnage = roll('1d6') * 5
-      when "Cybernetics, Illegal"
+      when @basic_trade_good == "Cybernetics, Illegal" && @morally_ambiguous
         @max_tonnage = roll('1d6')
-      when "Drugs, Illegal"
+      when @basic_trade_good == "Drugs, Illegal" && @morally_ambiguous
         @max_tonnage = roll('1d6')
-      when "Luxuries, Illegal"
+      when @basic_trade_good == "Luxuries, Illegal" && @morally_ambiguous
         @max_tonnage = roll('1d6')
-      when "Weapons, Illegal"
+      when @basic_trade_good == "Weapons, Illegal" && @morally_ambiguous
         @max_tonnage = roll('1d6') * 5
-      when "Exotics"
+      when @basic_trade_good == "Exotics"
         #Hmm, max works differently for these...
         #Can't really handle these, so just set max to 0, have to use book
         @max_tonnage = 0
       else
-        raise "Invalid Basic Trade Good: #{basic_trade_good}"
+        @max_tonnage = 0
     end
     @remaining_tonnage = @max_tonnage
   end

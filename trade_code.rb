@@ -1,125 +1,118 @@
 class TradeCode
   #Ex: Rich, Garden, High Population
   #Determines what TradeLots they have.
-  attr_accessor :code
-  def initialize(code)
+  attr_accessor :code, :morally_ambiguous
+  def initialize(code, morally_ambiguous)
     #case statement to determine what Basic Trade Good to load???
     @code = code
+    @morally_ambiguous = morally_ambiguous
   end
 
   def basic_goods_available
+    goods = []
     #return what basic goods can be found at this trade code (as array of
     #Basic Trade Goods)
-    #start with the basic goods available everywhere
-    goods = [
-      BasicTradeGood.new("Basic Electronics"),
-      BasicTradeGood.new("Basic Machine Parts"),
-      BasicTradeGood.new("Basic Manufactured Goods"),
-      BasicTradeGood.new("Basic Raw Materials"),
-      BasicTradeGood.new("Basic Consumables"),
-      BasicTradeGood.new("Basic Ore"),
-    ]
-    case @code
-    when 'In'
+    case
+    when @code == 'In' || @code == 'Industrial'
       goods << [
-        BasicTradeGood.new("Advanced Electronics"),
-        BasicTradeGood.new("Advanced Machine Parts"),
-        BasicTradeGood.new("Advanced Manufactured Goods"),
-        BasicTradeGood.new("Advanced Weapons"),
-        BasicTradeGood.new("Advanced Vehicles"),
-        BasicTradeGood.new("Polymers"),
-        BasicTradeGood.new("Robots"),
-        BasicTradeGood.new("Vehicles"),
-        BasicTradeGood.new("Weapons, Illegal"),
+        BasicTradeGood.new("Advanced Electronics", @morally_ambiguous),
+        BasicTradeGood.new("Advanced Machine Parts", @morally_ambiguous),
+        BasicTradeGood.new("Advanced Manufactured Goods", @morally_ambiguous),
+        BasicTradeGood.new("Advanced Weapons", @morally_ambiguous),
+        BasicTradeGood.new("Advanced Vehicles", @morally_ambiguous),
+        BasicTradeGood.new("Polymers", @morally_ambiguous),
+        BasicTradeGood.new("Robots", @morally_ambiguous),
+        BasicTradeGood.new("Vehicles", @morally_ambiguous),
+        BasicTradeGood.new("Weapons, Illegal", @morally_ambiguous),
       ]
-    when 'Ht'
+    when @code == 'Ht'
       goods << [
-        BasicTradeGood.new("Advanced Electronics"),
-        BasicTradeGood.new("Advanced Machine Parts"),
-        BasicTradeGood.new("Advanced Manufactured Goods"),
-        BasicTradeGood.new("Advanced Weapons"),
-        BasicTradeGood.new("Advanced Vehicles"),
-        BasicTradeGood.new("Cybernetics"),
-        BasicTradeGood.new("Cybernetics, Illegal"),
-        BasicTradeGood.new("Weapons, Illegal"),
+        BasicTradeGood.new("Advanced Electronics", @morally_ambiguous),
+        BasicTradeGood.new("Advanced Machine Parts", @morally_ambiguous),
+        BasicTradeGood.new("Advanced Manufactured Goods", @morally_ambiguous),
+        BasicTradeGood.new("Advanced Weapons", @morally_ambiguous),
+        BasicTradeGood.new("Advanced Vehicles", @morally_ambiguous),
+        BasicTradeGood.new("Cybernetics", @morally_ambiguous),
+        BasicTradeGood.new("Cybernetics, Illegal", @morally_ambiguous),
+        BasicTradeGood.new("Weapons, Illegal", @morally_ambiguous),
       ]
-    when 'Hi'
+    when @code == 'Hi'
       goods << [
-        BasicTradeGood.new("Luxury Goods"),
-        BasicTradeGood.new("Medical Supplies"),
-        BasicTradeGood.new("Pharmaceuticals"),
-        BasicTradeGood.new("Drugs, Illegal"),
+        BasicTradeGood.new("Luxury Goods", @morally_ambiguous),
+        BasicTradeGood.new("Medical Supplies", @morally_ambiguous),
+        BasicTradeGood.new("Pharmaceuticals", @morally_ambiguous),
+        BasicTradeGood.new("Drugs, Illegal", @morally_ambiguous),
       ]
-    when 'Ag'
+    when @code == 'Ag'
       goods << [
-        BasicTradeGood.new("Biochemicals"),
-        BasicTradeGood.new("Live Animals"),
-        BasicTradeGood.new("Luxury Consumables"),
-        BasicTradeGood.new("Textiles"),
-        BasicTradeGood.new("Uncommon Raw Materials"),
-        BasicTradeGood.new("Wood"),
-        BasicTradeGood.new("Biochemicals, Illegal"),
-        BasicTradeGood.new("Luxuries, Illegal"),
+        BasicTradeGood.new("Biochemicals", @morally_ambiguous),
+        BasicTradeGood.new("Live Animals", @morally_ambiguous),
+        BasicTradeGood.new("Luxury Consumables", @morally_ambiguous),
+        BasicTradeGood.new("Textiles", @morally_ambiguous),
+        BasicTradeGood.new("Uncommon Raw Materials", @morally_ambiguous),
+        BasicTradeGood.new("Wood", @morally_ambiguous),
+        BasicTradeGood.new("Biochemicals, Illegal", @morally_ambiguous),
+        BasicTradeGood.new("Luxuries, Illegal", @morally_ambiguous),
       ]
-    when 'Wa'
+    when @code == 'Wa'
       goods << [
-        BasicTradeGood.new("Biochemicals"),
-        BasicTradeGood.new("Luxury Consumables"),
-        BasicTradeGood.new("Petrochemicals"),
-        BasicTradeGood.new("Pharmaceuticals"),
-        BasicTradeGood.new("Spices"),
-        BasicTradeGood.new("Uncommon Raw Materials"),
-        BasicTradeGood.new("Biochemicals, Illegal"),
-        BasicTradeGood.new("Drugs, Illegal"),
-        BasicTradeGood.new("Luxuries, Illegal"),
+        BasicTradeGood.new("Biochemicals", @morally_ambiguous),
+        BasicTradeGood.new("Luxury Consumables", @morally_ambiguous),
+        BasicTradeGood.new("Petrochemicals", @morally_ambiguous),
+        BasicTradeGood.new("Pharmaceuticals", @morally_ambiguous),
+        BasicTradeGood.new("Spices", @morally_ambiguous),
+        BasicTradeGood.new("Uncommon Raw Materials", @morally_ambiguous),
+        BasicTradeGood.new("Biochemicals, Illegal", @morally_ambiguous),
+        BasicTradeGood.new("Drugs, Illegal", @morally_ambiguous),
+        BasicTradeGood.new("Luxuries, Illegal", @morally_ambiguous),
       ]
-    when 'A'
+    when @code == 'A'
       goods << [
-        BasicTradeGood.new("Crystals & Gems"),
-        BasicTradeGood.new("Pharmaceuticals"),
-        BasicTradeGood.new("Precious Metals"),
-        BasicTradeGood.new("Radioactives"),
-        BasicTradeGood.new("Uncommon Ore"),
-        BasicTradeGood.new("Drugs, Illegal"),
+        BasicTradeGood.new("Crystals & Gems", @morally_ambiguous),
+        BasicTradeGood.new("Pharmaceuticals", @morally_ambiguous),
+        BasicTradeGood.new("Precious Metals", @morally_ambiguous),
+        BasicTradeGood.new("Radioactives", @morally_ambiguous),
+        BasicTradeGood.new("Uncommon Ore", @morally_ambiguous),
+        BasicTradeGood.new("Drugs, Illegal", @morally_ambiguous),
       ]
-    when 'De'
+    when @code == 'De'
       goods << [
-        BasicTradeGood.new("Crystals & Gems"),
-        BasicTradeGood.new("Petrochemicals"),
-        BasicTradeGood.new("Pharmaceuticals"),
-        BasicTradeGood.new("Precious Metals"),
-        BasicTradeGood.new("Radioactives"),
-        BasicTradeGood.new("Spices"),
-        BasicTradeGood.new("Uncommon Raw Materials"),
-        BasicTradeGood.new("Drugs, Illegal"),
+        BasicTradeGood.new("Crystals & Gems", @morally_ambiguous),
+        BasicTradeGood.new("Petrochemicals", @morally_ambiguous),
+        BasicTradeGood.new("Pharmaceuticals", @morally_ambiguous),
+        BasicTradeGood.new("Precious Metals", @morally_ambiguous),
+        BasicTradeGood.new("Radioactives", @morally_ambiguous),
+        BasicTradeGood.new("Spices", @morally_ambiguous),
+        BasicTradeGood.new("Uncommon Raw Materials", @morally_ambiguous),
+        BasicTradeGood.new("Drugs, Illegal", @morally_ambiguous),
       ]
-    when 'Ic'
+    when @code == 'Ic'
       goods << [
-        BasicTradeGood.new("Crystals & Gems"),
-        BasicTradeGood.new("Petrochemicals"),
-        BasicTradeGood.new("Precious Metals"),
-        BasicTradeGood.new("Uncommon Ore"),
+        BasicTradeGood.new("Crystals & Gems", @morally_ambiguous),
+        BasicTradeGood.new("Petrochemicals", @morally_ambiguous),
+        BasicTradeGood.new("Precious Metals", @morally_ambiguous),
+        BasicTradeGood.new("Uncommon Ore", @morally_ambiguous),
       ]
-    when 'Ga'
+    when @code == 'Ga'
       goods << [
-        BasicTradeGood.new("Live Animals"),
-        BasicTradeGood.new("Luxury Consumables"),
-        BasicTradeGood.new("Spices"),
-        BasicTradeGood.new("Wood"),
-        BasicTradeGood.new("Luxuries, Illegal"),
+        BasicTradeGood.new("Live Animals", @morally_ambiguous),
+        BasicTradeGood.new("Luxury Consumables", @morally_ambiguous),
+        BasicTradeGood.new("Spices", @morally_ambiguous),
+        BasicTradeGood.new("Wood", @morally_ambiguous),
+        BasicTradeGood.new("Luxuries, Illegal", @morally_ambiguous),
       ]
-    when 'Fl'
+    when @code == 'Fl'
       goods << [
-        BasicTradeGood.new("Petrochemicals"),
-        BasicTradeGood.new("Precious Metals"),
+        BasicTradeGood.new("Petrochemicals", @morally_ambiguous),
+        BasicTradeGood.new("Precious Metals", @morally_ambiguous),
       ]
-    when 'Lo'
+    when @code == 'Lo'
       goods << [
-        BasicTradeGood.new("Radioactives"),
+        BasicTradeGood.new("Radioactives", @morally_ambiguous),
       ]
-    when 'Ni'
+    when @code == 'Ni'
       goods << [
-        BasicTradeGood.new("Textiles")
+        BasicTradeGood.new("Textiles", @morally_ambiguous),
       ]
     else
       #Not a useful code for trading, no extra items available
