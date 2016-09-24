@@ -26,7 +26,7 @@ class Supplier
   end
 
   def to_html_table(recalc = false)
-    table_output = '<table class="table table-bordered table-condensed table-striped"><tr class="table-header"><th>Basic Trade Good</th><th>Defined Trade Good</th><th>Size</th><th>Price</th></tr>'
+    table_output = '<table class="table table-bordered table-condensed table-striped table-hover"><tr class="table-header"><th>Basic Trade Good</th><th>Defined Trade Good</th><th>Size</th><th>Price</th></tr>'
     lines = get_trade_lots(recalc).split("\n")
     lines.each do |line|
       if line.include?(':')
