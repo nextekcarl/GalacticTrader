@@ -17,7 +17,28 @@ class Supplier
     @trade_lots.basic_trade_goods.each do |basic_trade_good|
       @available_goods += basic_trade_good.details
     end
-    puts @available_goods
+    @available_goods
+  end
+
+  def to_s(recalc = false)
+    puts get_trade_lots(recalc)
+  end
+
+  def to_html_table(recalc = false)
+    table_output = '<table class="table table-striped table-condensed"><tr class="table-header"><th>Basic Trade Good</th><th>Defined Trade Good</th><th>Size</th><th>Price</th></tr>'
+    lines = get_trade_lots(recalc).split("\n")
+    lines.each do |line|
+      if line.include?(':')
+        table_output += "<tr class='trade-goods-row'>"
+        line.split(':').each {|part| table_output += "<td>#{part.strip}</td><td></td>"}
+        table_output += "</tr>"
+      elsif line.include?('|')
+        table_output += "<tr class='defined-goods-row'><td></td>"
+        line.split('|').each {|part| table_output += "<td>#{part.strip}</td>"}
+        table_output += "</tr>"
+      end
+    end
+    table_output += '</table>'
   end
 
   private
