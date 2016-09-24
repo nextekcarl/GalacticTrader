@@ -12,10 +12,8 @@ class Supplier
     #Figures out what Trade Lots the supplier has available based upon
     #what their trade Codes are and their Moral stance. If already done, just
     #returns that memoized value unless recalc is set to true
-    if recalc
-      @trade_lots = nil
-      @available_goods = ''
-    end
+    @trade_lots = nil if recalc
+    @available_goods = ''
     @trade_lots ||= TradeLot.new(@trade_codes, @morally_ambiguous)
     @trade_lots.basic_trade_goods.each do |basic_trade_good|
       @available_goods += basic_trade_good.details

@@ -107,7 +107,8 @@ class TradeLot
         @basic_goods << BasicTradeGood.new("Exotics", @morally_ambiguous)
       end
     end
-    @basic_goods.flatten!
+
+    @basic_goods = @basic_goods.flatten.sort{|a, b| a.basic_trade_good <=> b.basic_trade_good}
   end
 
   def basic_trade_goods
