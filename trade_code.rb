@@ -25,7 +25,7 @@ class TradeCode
         BasicTradeGood.new("Vehicles", @morally_ambiguous),
         BasicTradeGood.new("Weapons, Illegal", @morally_ambiguous),
       ]
-    when @code == 'Ht'
+    when @code == 'Ht' || @code == 'High_tech'
       goods << [
         BasicTradeGood.new("Advanced Electronics", @morally_ambiguous),
         BasicTradeGood.new("Advanced Machine Parts", @morally_ambiguous),
@@ -36,14 +36,14 @@ class TradeCode
         BasicTradeGood.new("Cybernetics, Illegal", @morally_ambiguous),
         BasicTradeGood.new("Weapons, Illegal", @morally_ambiguous),
       ]
-    when @code == 'Hi'
+    when @code == 'Hi' || @code == 'High_pop'
       goods << [
         BasicTradeGood.new("Luxury Goods", @morally_ambiguous),
         BasicTradeGood.new("Medical Supplies", @morally_ambiguous),
         BasicTradeGood.new("Pharmaceuticals", @morally_ambiguous),
         BasicTradeGood.new("Drugs, Illegal", @morally_ambiguous),
       ]
-    when @code == 'Ag'
+    when @code == 'Ag' || @code == 'Agricultural'
       goods << [
         BasicTradeGood.new("Biochemicals", @morally_ambiguous),
         BasicTradeGood.new("Live Animals", @morally_ambiguous),
@@ -54,7 +54,7 @@ class TradeCode
         BasicTradeGood.new("Biochemicals, Illegal", @morally_ambiguous),
         BasicTradeGood.new("Luxuries, Illegal", @morally_ambiguous),
       ]
-    when @code == 'Wa'
+    when @code == 'Wa' || @code == 'Water_world'
       goods << [
         BasicTradeGood.new("Biochemicals", @morally_ambiguous),
         BasicTradeGood.new("Luxury Consumables", @morally_ambiguous),
@@ -66,7 +66,7 @@ class TradeCode
         BasicTradeGood.new("Drugs, Illegal", @morally_ambiguous),
         BasicTradeGood.new("Luxuries, Illegal", @morally_ambiguous),
       ]
-    when @code == 'A'
+    when @code == 'A' || @code == 'Asteroid' || @code == 'As'
       goods << [
         BasicTradeGood.new("Crystals & Gems", @morally_ambiguous),
         BasicTradeGood.new("Pharmaceuticals", @morally_ambiguous),
@@ -75,7 +75,7 @@ class TradeCode
         BasicTradeGood.new("Uncommon Ore", @morally_ambiguous),
         BasicTradeGood.new("Drugs, Illegal", @morally_ambiguous),
       ]
-    when @code == 'De'
+    when @code == 'De' || @code == 'Desert'
       goods << [
         BasicTradeGood.new("Crystals & Gems", @morally_ambiguous),
         BasicTradeGood.new("Petrochemicals", @morally_ambiguous),
@@ -86,14 +86,14 @@ class TradeCode
         BasicTradeGood.new("Uncommon Raw Materials", @morally_ambiguous),
         BasicTradeGood.new("Drugs, Illegal", @morally_ambiguous),
       ]
-    when @code == 'Ic'
+    when @code == 'Ic' || @code == 'Ice_capped'
       goods << [
         BasicTradeGood.new("Crystals & Gems", @morally_ambiguous),
         BasicTradeGood.new("Petrochemicals", @morally_ambiguous),
         BasicTradeGood.new("Precious Metals", @morally_ambiguous),
         BasicTradeGood.new("Uncommon Ore", @morally_ambiguous),
       ]
-    when @code == 'Ga'
+    when @code == 'Ga' || @code == 'Garden'
       goods << [
         BasicTradeGood.new("Live Animals", @morally_ambiguous),
         BasicTradeGood.new("Luxury Consumables", @morally_ambiguous),
@@ -101,16 +101,16 @@ class TradeCode
         BasicTradeGood.new("Wood", @morally_ambiguous),
         BasicTradeGood.new("Luxuries, Illegal", @morally_ambiguous),
       ]
-    when @code == 'Fl'
+    when @code == 'Fl' || @code == 'Fluid_oceans'
       goods << [
         BasicTradeGood.new("Petrochemicals", @morally_ambiguous),
         BasicTradeGood.new("Precious Metals", @morally_ambiguous),
       ]
-    when @code == 'Lo'
+    when @code == 'Lo' || @code == 'Low_pop'
       goods << [
         BasicTradeGood.new("Radioactives", @morally_ambiguous),
       ]
-    when @code == 'Ni'
+    when @code == 'Ni' || @code == 'Non_industrial'
       goods << [
         BasicTradeGood.new("Textiles", @morally_ambiguous),
       ]
